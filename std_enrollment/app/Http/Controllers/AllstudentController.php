@@ -79,9 +79,17 @@ class AllstudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($anyid)
     {
         //
+        $singleStd      = DB::table('std_tbl')
+                            ->select('*')
+                            ->where('std_id', $anyid)
+                            ->first();                    
+        $single_student = view('admin.editStudent')
+                            ->with('show_single_students', $singleStd);
+        return view('layout')
+                ->with('editStudent', $single_student);
     }
 
     /**
@@ -91,9 +99,28 @@ class AllstudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $anyid)
     {
         //
+        $data   = array();
+        $data['std_name'] = $request->std_name;
+        $data['std_roll'] = $request->std_roll;
+        $data['std_father'] = $request->std_father;
+        $data['std_mother'] = $request->std_mother;
+        $data['std_email'] = $request->std_email;
+        $data['std_phone'] = $request->std_phone;
+        $data['std_address'] = $request->std_address;
+        $data['std_password'] = $request->std_password;
+        $data['std_admissionyear'] = $request->std_admissionyear;
+
+        DB::table('std_tbl')
+            ->where('std_id', $anyid)
+            ->update($data);
+
+        Session::put('exception', 'Student Update Successful');
+        return Redirect::to('/allstudent');
+
+
     }
 
     /**

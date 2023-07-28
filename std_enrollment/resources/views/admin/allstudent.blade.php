@@ -6,6 +6,15 @@
     <div class="card">
     <div class="card-body">
     <h1 class="text-center">All Student</h1>
+    <p class="alert-success">
+                <?php
+                  $exception = Session::get('exception');
+                  if($exception){
+                    echo $exception;
+                    Session::put('exception', null);
+                  }
+                ?>  
+              </p>
         <div class="row">
         <div class="col-12">
             <table id="order-listing" class="table table-striped" style="width:100%;">
@@ -56,11 +65,14 @@
                     <a href="{{URL::to('/singleStudent/'.$student->std_id)}}">
                         <button class="btn btn-outline-success">View</button>
                     </a>
-                        <button class="btn btn-outline-primary">Edit</button>
 
-                        <a href="{{URL::to('/student_delete/'.$student->std_id)}}" id="Delete">
-                            <button class="btn btn-outline-danger">Delete</button>
-                        </a>
+                    <a href="{{URL::to('/editStudent/'.$student->std_id)}}">
+                        <button class="btn btn-outline-primary">Edit</button>
+                    </a>                    
+
+                    <a href="{{URL::to('/student_delete/'.$student->std_id)}}" id="Delete">
+                        <button class="btn btn-outline-danger">Delete</button>
+                    </a>
                         
                     </td>
                 </tr>
