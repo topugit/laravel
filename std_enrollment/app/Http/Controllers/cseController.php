@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class cseController extends Controller
 {
@@ -11,11 +12,19 @@ class cseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function cse()
+    public function cseStudents()
     {
         //
-        return view('admin.cse');
+        $listCSEstudent = DB::table('std_tbl')
+                        ->where(['std_department' => 1])
+                        ->get();
+        $students   =   view('admin.cse')
+                        ->with('show_CSE_students', $listCSEstudent);
+        return view('layout')
+                ->with('cse', $students);
+        //return view('admin.cse');
     } 
+
     public function index()
     {
         //

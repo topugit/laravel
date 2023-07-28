@@ -47,7 +47,7 @@ Route::post('/save_student', [AddstudentController::class, 'store']);
 //All Pages
 Route::get('/allstudent', [AllstudentController::class, 'studentlist']);
 Route::get('/tuitionfee', [tutionController::class, 'tuitionfee']);
-Route::get('/cse', [cseController::class, 'cse']);
+Route::get('/cse', [cseController::class, 'cseStudents']);
 Route::get('/bba', [bbaController::class, 'bba']);
 Route::get('/pharmacy', [pharmacyController::class, 'pharmacy']);
 Route::get('/result', [resultController::class, 'result']);
