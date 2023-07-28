@@ -363,6 +363,19 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="{{asset('js/dashboard_1.js')}}"></script>
+  <script src="{{asset('js/bootbox.min.js')}}"></script>
+  <script>
+    $(document).on("click", "#Delete", function(e){
+      e.preventDefault();
+      var link = $(this).attr("href");
+      bootbox.confirm("Are you sure to Delete", function(confirmed){
+        if(confirmed){
+          window.location.href = link;
+        };
+      });
+    });
+  </script>
+  
   <!-- End custom js for this page-->
 </body>
 

@@ -48,11 +48,15 @@ Route::post('/save_student', [AddstudentController::class, 'store']);
 Route::get('/allstudent', [AllstudentController::class, 'studentlist']);
 Route::get('/tuitionfee', [tutionController::class, 'tuitionfee']);
 Route::get('/cse', [cseController::class, 'cseStudents']);
-Route::get('/bba', [bbaController::class, 'bba']);
-Route::get('/pharmacy', [pharmacyController::class, 'pharmacy']);
+Route::get('/bba', [bbaController::class, 'bbaStudents']);
+Route::get('/pharmacy', [pharmacyController::class, 'pharmacyStudents']);
 Route::get('/result', [resultController::class, 'result']);
 Route::get('/result', [resultController::class, 'result']);
 
 
 //Logout
 Route::get('/logout', [AdmintblController::class, 'logout']);
+
+//Manage Tables
+
+Route::get('/student_delete/{std_id}', [AllstudentController::class, 'destroy']);

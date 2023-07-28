@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class bbaController extends Controller
 {
@@ -11,11 +12,17 @@ class bbaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function bba()
+    public function bbaStudents()
     {
-        //
-        return view('admin.bba');
+        $listBBAstudent = DB::table('std_tbl')
+                        ->where(['std_department' => 2])
+                        ->get();
+        $students   =   view('admin.bba')
+                ->with('show_BBA_students', $listBBAstudent);
+        return view('layout')
+        ->with('bba', $students);
     }
+
     public function index()
     {
         //

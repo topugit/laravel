@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class pharmacyController extends Controller
 {
     /**
@@ -11,10 +11,16 @@ class pharmacyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function pharmacy()
+    public function pharmacyStudents()
     {
         //
-        return view('admin.pharmacy');
+        $listPharmacystudent = DB::table('std_tbl')
+                        ->where(['std_department' => 3])
+                        ->get();
+        $students   =   view('admin.pharmacy')
+                        ->with('show_Pharmacy_students', $listPharmacystudent);
+        return view('layout')
+                ->with('pharmacy', $students);
     }
 
     public function index()

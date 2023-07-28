@@ -55,7 +55,8 @@
                     <td>
                         <button class="btn btn-outline-success">View</button>
                         <button class="btn btn-outline-primary">Edit</button>
-                        <button class="btn btn-outline-danger">Delete</button>
+                        <a href="{{URL::to('/student_delete/'.$student->std_id)}}" id="Delete"><button class="btn btn-outline-danger">Delete</button></a>
+                        
                     </td>
                 </tr>
             @endforeach

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-
+use Illuminate\Support\Facades\Redirect;
+use Session;
+Session_start();
 class AllstudentController extends Controller
 {
     /**
@@ -90,8 +92,12 @@ class AllstudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($student_id)
     {
         //
+        DB::table('std_tbl')
+            ->where('std_id', $student_id)
+            ->delete();
+        return Redirect::to('/allstudent');
     }
 }
