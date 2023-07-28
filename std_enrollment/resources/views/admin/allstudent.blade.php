@@ -53,9 +53,14 @@
 
                     <td><img src="{{URL::to($student->std_image)}}" height='80' width='80' alt=""></td>
                     <td>
+                    <a href="{{URL::to('/singleStudent/'.$student->std_id)}}">
                         <button class="btn btn-outline-success">View</button>
+                    </a>
                         <button class="btn btn-outline-primary">Edit</button>
-                        <a href="{{URL::to('/student_delete/'.$student->std_id)}}" id="Delete"><button class="btn btn-outline-danger">Delete</button></a>
+
+                        <a href="{{URL::to('/student_delete/'.$student->std_id)}}" id="Delete">
+                            <button class="btn btn-outline-danger">Delete</button>
+                        </a>
                         
                     </td>
                 </tr>

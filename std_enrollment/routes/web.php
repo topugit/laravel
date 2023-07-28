@@ -57,6 +57,6 @@ Route::get('/result', [resultController::class, 'result']);
 //Logout
 Route::get('/logout', [AdmintblController::class, 'logout']);
 
-//Manage Tables
-
+//View, Edit, Delete Students
 Route::get('/student_delete/{std_id}', [AllstudentController::class, 'destroy']);
+Route::get('/singleStudent/{std_id}', [AllstudentController::class, 'show']);

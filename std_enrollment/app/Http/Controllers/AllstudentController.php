@@ -58,9 +58,19 @@ class AllstudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($anyid)
     {
         //
+        $singleStd = DB::table('std_tbl')
+                    ->select('*')
+                    ->where('std_id', $anyid)
+                    ->first();
+        $single_student   = view('admin.singleStudent')
+                            ->with('show_single_students', $singleStd);
+        return view('layout')
+                ->with('singleStudent', $single_student);
+
+        //return view('admin.singleStudent');
     }
 
     /**
