@@ -271,13 +271,13 @@
               <div class="collapse" id="authSubmenu">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/login.html">
-                      Login
+                    <a class="nav-link" href="{{URL::to('/addteacher')}}">
+                      Add Teacher
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/login-2.html">
-                      Login 2
+                    <a class="nav-link" href="{{URL::to('/viewteacher')}}">
+                      View Teacher
                     </a>
                   </li>                  
                 </ul>

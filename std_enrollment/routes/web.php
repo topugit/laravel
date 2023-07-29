@@ -62,3 +62,8 @@ Route::get('/student_delete/{std_id}', [AllstudentController::class, 'destroy'])
 Route::get('/singleStudent/{std_id}', [AllstudentController::class, 'show']);
 Route::get('/editStudent/{std_id}', [AllstudentController::class, 'edit']);
 Route::post('/updateStudent/{std_id}', [AllstudentController::class, 'update']);
+
+
+//Teacher fucntions
+
+Route::get('/addteacher', [teacherController::class, 'store']);

@@ -24,6 +24,8 @@ class CreateTeacherTblTable extends Migration
         });
     }
 
+    
+
     /**
      * Reverse the migrations.
      *
@@ -34,3 +36,5 @@ class CreateTeacherTblTable extends Migration
         Schema::dropIfExists('teacher_tbl');
     }
 }
+
+
