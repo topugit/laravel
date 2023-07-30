@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\studenttbl;
+use App\Models\viewteacher;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use DB;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 Session_start();
-class StudenttblController extends Controller
+
+class ViewteacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,29 +17,23 @@ class StudenttblController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function studentLogin(Request $request)
-    {
-        $email      = $request->std_email;
-        $password   = md5($request->std_password);
-        $result     =DB::table('std_tbl')
-        ->where('std_email', $email)
-        ->where('std_password', $password)
-        ->first();
+     public function teacherlist()
+     {
+         //
+         $allteacher = DB::table('teacher_tbl')
+                         ->get();
+         $teachers   = view('admin.viewteacher')
+                         ->with('show_all_teacher', $allteacher);
+         return view('layout')
+                     ->with('viewteacher', $teachers);
+         
+         //return view('admin.Allstudent');
+     }
 
-        if($result){
-           Session::put('std_email', $result->std_email);
-           Session::put('std_password', $result->std_password);
-           return Redirect::to('studentDashboard');
-        }
-        else{
-            Session::put('exception', 'Email or Password Invalid');
-            return Redirect::to('/');
-        }
-    }
+
     public function index()
     {
         //
-        return view('student.dashboard');
     }
 
     /**
@@ -65,10 +60,10 @@ class StudenttblController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\studenttbl  $studenttbl
+     * @param  \App\Models\viewteacher  $viewteacher
      * @return \Illuminate\Http\Response
      */
-    public function show(studenttbl $studenttbl)
+    public function show(viewteacher $viewteacher)
     {
         //
     }
@@ -76,10 +71,10 @@ class StudenttblController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\studenttbl  $studenttbl
+     * @param  \App\Models\viewteacher  $viewteacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(studenttbl $studenttbl)
+    public function edit(viewteacher $viewteacher)
     {
         //
     }
@@ -88,10 +83,10 @@ class StudenttblController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\studenttbl  $studenttbl
+     * @param  \App\Models\viewteacher  $viewteacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, studenttbl $studenttbl)
+    public function update(Request $request, viewteacher $viewteacher)
     {
         //
     }
@@ -99,10 +94,10 @@ class StudenttblController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\studenttbl  $studenttbl
+     * @param  \App\Models\viewteacher  $viewteacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(studenttbl $studenttbl)
+    public function destroy(viewteacher $viewteacher)
     {
         //
     }

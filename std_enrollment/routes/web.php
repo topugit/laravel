@@ -13,6 +13,8 @@ use App\Http\Controllers\StudenttblController;
 use App\Http\Controllers\teacherController;
 use App\Http\Controllers\adminprofile;
 use App\Http\Controllers\adminsettings;
+use App\Http\Controllers\ViewteacherController;
+
 
 
 /*
@@ -43,6 +45,9 @@ Route::get('/adminsettings', [adminsettings::class, 'adminsettings']);
 //Add Student
 Route::get('/addstudent', [AddstudentController::class, 'addstudent']);
 Route::post('/save_student', [AddstudentController::class, 'store']);
+// Student Login
+Route::post('/studentlogin', [StudenttblController::class, 'studentLogin']);
+Route::get('/studentDashboard', [StudenttblController::class, 'index']);
 
 //All Pages
 Route::get('/allstudent', [AllstudentController::class, 'studentlist']);
@@ -68,3 +73,6 @@ Route::post('/updateStudent/{std_id}', [AllstudentController::class, 'update']);
 
 Route::get('/addteacher', [teacherController::class, 'index']);
 Route::post('/save_teacher', [teacherController::class, 'store']);
+
+//View All Teacher
+Route::get('/viewteacher', [ViewteacherController::class, 'teacherlist']);
