@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use DB;
+use Session;
+Session_start();
 
 class teacherController extends Controller
 {
@@ -14,6 +18,7 @@ class teacherController extends Controller
     public function index()
     {
         //
+        return view('admin.addteacher');
     }
 
     /**
@@ -35,6 +40,21 @@ class teacherController extends Controller
     public function store(Request $request)
     {
         //
+        $data=array();
+        $data['teacher_name']=$request->teacher_name;
+        $data['teacher_phone']=$request->teacher_phone;
+        $data['teacher_gender']=$request->teacher_gender;
+        $data['teacher_dept']=$request->teacher_dept;
+        $data['teacher_salary']=$request->teacher_salary; 
+        
+        if ($data) {           
+            DB::table('teacher_tbl')->insert($data);
+            Session::put('exception', 'Teacher Added Successfully!!!');
+        } else {
+        Session::put('exception', 'Teachher Added Invalid.');
+    }
+        
+        return Redirect::to('/addteacher');
     }
 
     /**

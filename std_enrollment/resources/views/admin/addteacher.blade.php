@@ -14,27 +14,27 @@
                   }
                 ?>  
               </p>
-            <form class="forms-sample" method="post" action="{{URL::to('/save_student')}}" enctype="multipart/form-data">
+            <form class="forms-sample" method="post" action="{{URL::to('/save_teacher')}}" enctype="multipart/form-data">
                 @csrf
             <div class="form-group">
                 <label for="name">Teacher Name</label>
-                <input type="text" class="form-control p-input" name="std_name" placeholder="Enter Student Name">                
+                <input type="text" class="form-control p-input" name="teacher_name" placeholder="Enter Teacher Name">                
             </div>
             <div class="form-group">
-                <label for="name">Student Roll</label>
-                <input type="number" class="form-control p-input" name="std_roll" placeholder="Enter Student Roll">                
-            </div>           
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control p-input" name="std_email" aria-describedby="emailHelp" placeholder="Enter email">
+                <label for="name">Teacher Phone</label>
+                <input type="number" class="form-control p-input" name="teacher_phone" placeholder="Enter Teacher Phone">                
             </div>
             <div class="form-group">
-                <label for="name">Student Phone</label>
-                <input type="number" class="form-control p-input" name="std_phone" placeholder="Enter Student Phone">                
+                <label for="name">Gender</label>
+                <input type="text" class="form-control p-input" name="teacher_gender" placeholder="Enter Gender">                
             </div>
             <div class="form-group">
-                <label for="name">Student Address</label>
-                <input type="text" class="form-control p-input" name="std_address" placeholder="Enter Student Address">                
+                <label for="name">Department</label>
+                <input type="text" class="form-control p-input" name="teacher_dept" placeholder="Enter Department">                
+            </div>
+            <div class="form-group">
+                <label for="name">Teacher Salary</label>
+                <input type="number" class="form-control p-input" name="teacher_salary" placeholder="Enter Teacher Salary">                
             </div>
             
                 

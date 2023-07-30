@@ -66,4 +66,5 @@ Route::post('/updateStudent/{std_id}', [AllstudentController::class, 'update']);
 
 //Teacher fucntions
 
-Route::get('/addteacher', [teacherController::class, 'store']);
+Route::get('/addteacher', [teacherController::class, 'index']);
+Route::post('/save_teacher', [teacherController::class, 'store']);
